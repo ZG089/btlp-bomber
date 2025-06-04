@@ -7,7 +7,7 @@ press_check() {
 disable_modules() {
   local list
   for mod in ${MODDIR}/../*; do
-    if [[ -d "${mod}" && ! -f "${mod}/disable" ]]; then
+    if [[ -d "${mod}" && ! -f "${mod}/disable" && "$(basename "$mod")" != "abootloop" ]]; then
       list="${list} ${mod}/disable"
     fi
   done
